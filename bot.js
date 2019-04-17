@@ -1,56 +1,59 @@
-﻿const Discord = require('discord.js');  
+const Discord = require('discord.js');  
 const client = new Discord.Client();  
-const aprefix ="!";
-const dev = ["401886446056898560"];
+const adminprefix = "÷";
+const devs = ['564414567946387487','401886446056898560']
 client.on('message', message => {
-    var arg = message.content.split(` `).slice(1).join(' ');
-      if (!dev.includes(message.author.id)) return;
-      
-  if (message.content.startsWith(aprefix + 'setg')) { 
-    client.user.setGame(arg);
-      message.channel.send(`**?   ${arg}**`)
-  } else 
-  if (message.content.startsWith(aprefix + 'setw')) {
-  client.user.setActivity(arg, {type:'WATCHING'});
-      message.channel.send(`**?   ${arg}**`)
-  } else 
-  if (message.content.startsWith(aprefix + 'setl')) {
-  client.user.setActivity(arg , {type:'LISTENING'});
-      message.channel.send(`**?   ${arg}**`)
-  } else 
-  if (message.content.startsWith(aprefix + 'stream')){
-    client.user.setGame(arg, "https://www.twitch.tv/bot");
-      message.channel.send(`**? ${arg} **`)
-  } else
-  if (message.content.startsWith(aprefix + 'setname')) { //لتغير اسم البوت 
-  client.user.setUsername(arg).then
-      message.channel.send(`Changing The Name To ..**${arg}** `)
+  var argresult = message.content.split(` `).slice(1).join(' ');
+    if (!devs.includes(message.author.id)) return;
+   
+if (message.content.startsWith(adminprefix + 'setgame')) {
+  client.user.setGame(argresult);
+    message.channel.sendMessage(`**__${argresult}__تـم تـغـيـر بـلانـيـق الـى:large_blue_circle:**`)
 } else
-
-if (message.content.startsWith(aprefix + 'setavatar')) { //لتغير صورة البوت 
-  client.user.setAvatar(arg);
-    message.channel.send(`تم تغير صورة البوت لي :**${arg}** `);
+  if (message.content.startsWith(adminprefix + 'setname')) {
+client.user.setUsername(argresult).then
+    message.channel.sendMessage(`**__${argresult}__تـم تـغـيـر اســم الـى**:pencil:`)
+return message.reply("**لايـمـكـن تـغـيـر اسـم الان نـتـظـار سـاعـتـان**:stopwatch: ");
 } else
-
-if (message.content.startsWith(aprefix + 'setonline')) { //لتغير حالت البوت لي  online
-client.user.setStatus("online")
-    message.channel.send(`**تم تغير حالت البوت لي online** `);
-} else
-    
-if (message.content.startsWith(aprefix + 'setdnd')) { //~~~ dnd
-client.user.setStatus("dnd")
-    message.channel.send(`**تم تغير حالت البوت لي dnd** `);
-} else
-    
-if (message.content.startsWith(aprefix + 'setidle')) { //~~~ idle
-client.user.setStatus("idle")
-    message.channel.send(`**تم تغير حالت البوت لي idle** `);
-} else
-
-if (message.content.startsWith(aprefix + 'setoffline')) { //~~~ offline
-client.user.setStatus("offline")
-    message.channel.send(`**تم تغير حالت البوت لي offline** `);
+  if (message.content.startsWith(adminprefix + 'setavatar')) {
+client.user.setAvatar(argresult);
+  message.channel.sendMessage(`**__${argresult}__تــم تــغـيــر صــور الـى :camera_with_flash:**`);
+      } else    
+if (message.content.startsWith(adminprefix + 'setT')) {
+  client.user.setGame(argresult, "https://www.twitch.tv/idk");
+    message.channel.sendMessage(`**__${argresult}__ تــم تـغــيــر حــالـه الــى :red_circle:**`)
 }
 });
+
+client.on("message", async message => {
+    if(message.content.startsWith(prefix + "Ex")) {
+        let Ex = new Discord.RichEmbed()
+            .setColor("RANDOM")
+            .setThumbnail(message.author.avatarURL)
+            .setDescription(`**__اوامـــر تــغـيـر احـلات بـوت + صـور + اسـم__**
+			▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+			***
+			1-${prefix}setgame = الى تـغـيـر حـالـه الـى بـلانـيـق [ :large_blue_circle: ]
+			
+			2-${prefix}setT = الـى تـغـيـر حـالـه الــى تـويـتـش [ :red_circle: ]
+			
+			3-${prefix}setavatar = الـى تـغـيـر صـور [ :camera_with_flash: ]
+			
+			4-${prefix}setname = الـى تـغـيـر اسـم [ :pencil: ]
+			***
+			▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+			**__مـسـوالـيـن تـغـيـر__**
+			▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+			1-! ➹⎛ トゥルキパシャ ⎞♔ ❥ 
+			2-NO MAX`);
+            message.channel.sendEmbed(Ex);
+    }
+});
+
+client.on('message', msg => {
+    if (msg.content === '÷') {
+      msg.reply('***__بـــحـــبــــك__***');
+    }
+  });
 
 client.login(process.env.BOT_TOKEN);
