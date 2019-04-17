@@ -26,7 +26,7 @@ if (message.content.startsWith(adminprefix + 'setT')) {
 });
 
 client.on('message', message => {
-if (message.content.startsWith(prefix + 'Ex')) { 
+if (message.content.startsWith(prefix + 'help')) { 
     let pages = [`
 ***__وصف عن البوت__***
 **
@@ -101,7 +101,7 @@ ${prefix}setT
         })
     })
     }
-});
+}); 
 
 client.on('message', msg => {
     if (msg.content === '÷') {
