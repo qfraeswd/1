@@ -53,7 +53,6 @@ ${prefix}setT
 3-${prefix}setavatar = الـى تـغـيـر صـور [ :camera_with_flash: ]
 
 **
-   `,`
         ***__تــــغـــيـــر اســـم__***
  **    
  
