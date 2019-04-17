@@ -45,7 +45,7 @@ client.on("message", async message => {
 			**__مـسـوالـيـن تـغـيـر__**
 			▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 			1-! ➹⎛ トゥルキパシャ ⎞♔ ❥ 
-			2-NO MAX`);
+			2-《Ma》Mr!Zeꙃo`);
             message.channel.sendEmbed(Ex);
     }
 });
